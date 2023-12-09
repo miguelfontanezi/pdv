@@ -1,10 +1,14 @@
 <?php
+include ("conexao.php");
 if($_POST){
     $nome = $_POST["nome"];
     $preco = $_POST["preco"];
     $quantidade = $_POST["quantidade"];
+    $sql = "insert into produtos (nome, preco, quantidade) values ('$nome', '$preco', '$quantidade')";
+    $stmt = $conexao->prepare($sql); 
+    $stmt->execute();
 
-    echo "o nome do produto é".$nome." e o preço do produto é".$preco . "A quantidade é:" .$quantidade;
+    //echo "o nome do produto é".$nome." e o preço do produto é".$preco . "A quantidade é:" .$quantidade;
 }
 ?>
 <!DOCTYPE html>

@@ -1,10 +1,13 @@
 <?php
+include ("conexao.php");
 if($_POST){
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $senha = $_POST["senha"];
-
-    echo "o nome é :".$nome." e o E-mail é:".$email. "e a senha é:" .$senha;
+    $sql = "insert into usuarios (nome, email, senha) values ('$nome', '$email' , '$senha')";
+    $stmt = $conexao->prepare($sql); 
+    $stmt->execute();
+    //echo "o nome é :".$nome." e o E-mail é:".$email. "e a senha é:" .$senha;
 }
 ?>
 <!DOCTYPE html>

@@ -1,9 +1,13 @@
 <?php
+include ("conexao.php");
 if($_POST){
     $nome = $_POST["nome"];
     $email = $_POST["email"];
 
-    echo "foi enviado o nome".$nome." e o email".$email;
+    $sql = "insert into clientes (nome, email) values ('$nome', '$email')";
+    $stmt = $conexao->prepare($sql); 
+    $stmt->execute();
+    //echo "foi enviado o nome".$nome." e o email".$email;
 }
 ?>
 <!DOCTYPE html>
